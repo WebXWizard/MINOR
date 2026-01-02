@@ -96,7 +96,7 @@ const About = () => {
           </li>
         </ul>
         <p className="text-lg text-gray-700 max-w-6xl">
-          Whether you're working on a personal project or a production-level
+          Whether you&apos;re working on a personal project or a production-level
           app,{" "}
           <span className="font-semibold text-blue-600">
             React Library Directory

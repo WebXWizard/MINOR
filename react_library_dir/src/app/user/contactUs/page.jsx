@@ -157,7 +157,7 @@ const ContactUs = () => {
               </h1>
               <p className="text-gray-900 text-lg">
                 Have some big idea or brand to develop and need help? Then reach
-                out we'd love to hear about your project and provide help.
+                out we&apos;d love to hear about your project and provide help.
               </p>
             </div>
 

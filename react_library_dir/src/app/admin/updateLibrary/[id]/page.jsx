@@ -10,14 +10,13 @@ const UpdateLibrary = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
 
-  const fetchUserData = async () => {
-    const res = await axios.get(`http:///localhost:5000/library/getbyid/${id}`);
-    setUserData(res.data);
-  };
-
   useEffect(() => {
+    const fetchUserData = async () => {
+      const res = await axios.get(`http:///localhost:5000/library/getbyid/${id}`);
+      setUserData(res.data);
+    };
     fetchUserData();
-  }, []);
+  }, [id]);
 
   const router = useRouter();
   const addLibraryForm = useFormik({
