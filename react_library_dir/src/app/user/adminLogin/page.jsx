@@ -29,7 +29,7 @@ const Login = () => {
         .post("http://localhost:5000/admin/authenticate", values)
         .then((response) => {
           console.log(response.status);
-          // localStorage.setItem('user', JSON.stringify(response.data) )
+          localStorage.setItem('admin', JSON.stringify(response.data));
           // setLoggedIn(true)
           resetForm();
           toast.success("Login Successfully");

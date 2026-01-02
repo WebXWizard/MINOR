@@ -1,5 +1,7 @@
 "use client";
 import localFont from "next/font/local";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Toaster, ToastBar } from "react-hot-toast";
 import Sidebar from "./sidebar";
 
@@ -15,6 +17,22 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
+  const router = useRouter();
+  const [authorized, setAuthorized] = useState(false);
+
+  useEffect(() => {
+    const admin = localStorage.getItem("admin");
+    if (!admin) {
+      router.push("/user/adminLogin");
+    } else {
+      setAuthorized(true);
+    }
+  }, []);
+
+  if (!authorized) {
+    return null;
+  }
+
   return (
     <div className="flex h-screen">
       <Sidebar />
