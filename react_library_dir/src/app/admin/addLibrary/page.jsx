@@ -19,7 +19,7 @@ const AddLibrary = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("http://localhost:5000/library/add", values)
+        .post("https://minor-backend-pearl.vercel.app/library/add", values)
         .then((response) => {
           console.log(response.status);
           resetForm();

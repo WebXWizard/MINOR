@@ -10,7 +10,7 @@ const ManageUser = () => {
 
   const fetchUserList = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/user/getall");
+      const res = await axios.get("https://minor-backend-pearl.vercel.app/user/getall");
       setUserList(res.data);
     } catch (err) {
       console.error(err);
@@ -26,7 +26,7 @@ const ManageUser = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/user/delete/${id}`);
+      await axios.delete(`https://minor-backend-pearl.vercel.app/user/delete/${id}`);
       toast.success("User Deleted Successfully");
       fetchUserList();
     } catch (err) {

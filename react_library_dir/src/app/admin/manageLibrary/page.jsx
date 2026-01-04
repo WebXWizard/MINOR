@@ -7,7 +7,7 @@ import Link from "next/link";
 const ManageUser = () => {
   const fetchUserList = () => {
     axios
-      .get("http://localhost:5000/library/getall")
+      .get("https://minor-backend-pearl.vercel.app/library/getall")
       .then((res) => {
         console.log(res.status);
         console.log(res.data);
@@ -24,7 +24,7 @@ const ManageUser = () => {
 
   const deleteUser = (id) => {
     axios
-      .delete("http://localhost:5000/library/delete/" + id)
+      .delete("https://minor-backend-pearl.vercel.app/library/delete/" + id)
       .then((result) => {
         toast.success("User Deleted Successfully");
         fetchUserList();

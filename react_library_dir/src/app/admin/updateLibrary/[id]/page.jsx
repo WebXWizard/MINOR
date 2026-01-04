@@ -12,7 +12,7 @@ const UpdateLibrary = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const res = await axios.get(`http:///localhost:5000/library/getbyid/${id}`);
+      const res = await axios.get(`https://minor-backend-pearl.vercel.app/library/getbyid/${id}`);
       setUserData(res.data);
     };
     fetchUserData();
@@ -31,7 +31,7 @@ const UpdateLibrary = () => {
     onSubmit: (values) => {
       console.log(values);
       axios
-        .put("http://localhost:5000/library/update/" + id, values)
+        .put("https://minor-backend-pearl.vercel.app/library/update/" + id, values)
         .then((response) => {
           // console.log(response.status)
           // resetForm()

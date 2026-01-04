@@ -43,7 +43,7 @@ const SignUp = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("http://localhost:5000/user/add", values)
+        .post("https://minor-backend-pearl.vercel.app/user/add", values)
         .then((response) => {
           console.log(response.status);
           resetForm();
