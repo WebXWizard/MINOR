@@ -99,52 +99,56 @@ const Browse = () => {
   return (
     <div className="">
       {/* Dialogue Panel */}
-      <Dialog
-        open={isOpen}
-        as="div"
-        className="relative z-10 focus:outline-none font-sans-serif"
-        onClose={close}
-      >
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-2">
-            {selLibrary !== null && (
-              <DialogPanel
-                transition
-                className="w-full max-w-md rounded-xl bg-gray-200 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
-              >
-                <img
-                  src={selLibrary.url}
-                  alt=""
-                  className=" mt-2 w-full h-72 object-cover rounded-xl mb-2"
-                />
-                <div className="space-y-4 text-gray-700  mb-4 text-lg two-lines">
-                  <p className="text-gray-700 text-xl">
-                    <strong>Library Name:</strong> {selLibrary.name}
-                  </p>
-                  <p className="text-gray-700 text-xl">
-                    <strong>Category:</strong> {selLibrary.category}
-                  </p>
-                  <p className="text-gray-700 text-xl">
-                    <strong>Package_Name:</strong> {selLibrary.package_name}
-                  </p>
-                  <p className="text-gray-700 text-xl">
-                    <strong>Description:</strong> {selLibrary.description}
-                  </p>
-                </div>
+   <Dialog
+  open={isOpen}
+  as="div"
+  className="relative z-10 font-sans focus:outline-none"
+  onClose={close}
+>
+  {/* Overlay */}
+  <div className="fixed inset-0 bg-black/30" />
 
-                <div className="mt-6">
-                  <a
-                    href={selLibrary.link}
-                    className="inline-block w-full text-center bg-indigo-800 text-white py-2 text-xl rounded-md hover:bg-gray-700 transition"
-                  >
-                    View Library
-                  </a>
-                </div>
-              </DialogPanel>
-            )}
-          </div>
+  {/* Centered Modal */}
+  <div className="fixed inset-0 flex items-center justify-center p-4">
+    {selLibrary && (
+      <DialogPanel className="w-full max-w-lg bg-gray-200 rounded-2xl p-5 sm:p-6">
+        {/* Image */}
+        <img
+          src={selLibrary.url}
+          alt={selLibrary.name}
+          className="w-full h-60 sm:h-72 object-cover rounded-xl mb-4"
+        />
+
+        {/* Library Details */}
+        <div className="space-y-3 text-gray-700 text-base sm:text-lg mb-4">
+          <p>
+            <strong>Library Name:</strong> {selLibrary.name}
+          </p>
+          <p>
+            <strong>Category:</strong> {selLibrary.category}
+          </p>
+          <p>
+            <strong>Package Name:</strong> {selLibrary.package_name}
+          </p>
+          <p>
+            <strong>Description:</strong> {selLibrary.description}
+          </p>
         </div>
-      </Dialog>
+
+        {/* Button */}
+        <div className="mt-4">
+          <a
+            href={selLibrary.link}
+            className="block w-full text-center bg-indigo-800 text-white py-2.5 rounded-lg text-lg hover:bg-gray-700 transition"
+          >
+            View Library
+          </a>
+        </div>
+      </DialogPanel>
+    )}
+  </div>
+</Dialog>
+
 
       <div className="container ">
         {/* Title */}
