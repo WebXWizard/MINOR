@@ -24,7 +24,7 @@ const AddLibrary = () => {
           console.log(response.status);
           resetForm();
           toast.success("Library Added Successfully");
-          router.push("/");
+          router.push("/admin/dashboard");
         })
         .catch((err) => {
           console.log(err);

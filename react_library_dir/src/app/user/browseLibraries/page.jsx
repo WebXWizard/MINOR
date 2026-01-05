@@ -39,38 +39,29 @@ const Browse = () => {
   const displayProduct = () => {
     return product.map((obj) => (
       <div
-        key={obj._id} // Add unique key here
-        className="container font-sans-serif bg-gray-500 rounded-2xl shadow-2xl"
+        key={obj._id}
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden flex flex-col h-full hover:shadow-2xl transition-shadow duration-300"
       >
-        <div className="">
-          <div className="container mx-auto px-1 py-1">
-            <div className="flex sm:justify-center rounded-xl shadow-2xl">
-              <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-lg overflow-hidden">
-                <img
-                  src={obj.url}
-                  alt="Headless UI"
-                  className="w-96 h-72 object-cover"
-                />
-                <div className="p-4 md:p-6 mb-2">
-                  <h3 className="text-4xl font-bold font-[sans-serif] text-indigo-500 dark:text-indigo-400 mb-8">
-                    {obj.name}
-                  </h3>
-
-                  <Button
-                    onClick={() => {
-                      open();
-                      setSelLibrary(obj);
-                    }}
-                    className="inline-block w-full text-center bg-blue-500 text-white py-2 text-2xl rounded-md hover:bg-blue-700 transition font-[sans-serif]"
-                  >
-                    Browse Library
-                  </Button>
-                </div>
-              </div>
-
-              {/* Add more items as needed, following the same structure */}
-            </div>
+        <img
+          src={obj.url}
+          alt={obj.name}
+          className="w-full h-64 object-cover"
+        />
+        <div className="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 className="text-2xl font-bold font-[sans-serif] text-indigo-600 dark:text-indigo-400 mb-4 truncate">
+              {obj.name}
+            </h3>
           </div>
+          <Button
+            onClick={() => {
+              open();
+              setSelLibrary(obj);
+            }}
+            className="w-full bg-blue-600 text-white py-2.5 px-4 text-lg font-semibold rounded-lg hover:bg-blue-700 transition duration-200"
+          >
+            Browse Library
+          </Button>
         </div>
       </div>
     ));
@@ -253,9 +244,10 @@ const Browse = () => {
                 </div>
                 {/* End SVG Element */}
               </div>
-              <div className="mt-8 sm:mt-8">
+              </div>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <button
-                  className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-lg font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-5 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none transition-colors"
                   onClick={(e) => filterBYCategory("UI Marketplace")}
                 >
                   <svg
@@ -276,7 +268,7 @@ const Browse = () => {
                   UI Marketplace
                 </button>
                 <button
-                  className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-lg font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-5 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none transition-colors"
                   onClick={(e) => filterBYCategory("FrontEnd")}
                 >
                   <svg
@@ -297,7 +289,7 @@ const Browse = () => {
                   Front-End
                 </button>
                 <button
-                  className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-lg font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-5 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none transition-colors"
                   onClick={(e) => filterBYCategory("Animations")}
                 >
                   <svg
@@ -317,31 +309,8 @@ const Browse = () => {
                   Animations
                 </button>
 
-                {/* <button
-                  className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                  onClick={(e) => filterBYCategory("Performance")}
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                    <path d="M9 18h6" />
-                    <path d="M10 22h4" />
-                  </svg>
-                  Performance
-                </button> */}
-
                 <button
-                  className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-lg font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-5 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none transition-colors"
                   onClick={(e) => filterBYCategory("Open Source")}
                 >
                   <svg
@@ -366,36 +335,15 @@ const Browse = () => {
                   </svg>
                   Open Source
                 </button>
-                {/* <a
-                    className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                    href="#"
-                  >
-                    <svg
-                      className="shrink-0 size-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
-                    </svg>
-                    MacBook
-                  </a> */}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container ">
-        <div className="mt-8 justify-center lg:ml-16 md:ml-12 sm:ml-8 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {" "}
-          {displayProduct()}{" "}
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayProduct()}
         </div>
       </div>
 
