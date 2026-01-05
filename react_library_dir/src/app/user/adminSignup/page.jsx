@@ -35,7 +35,7 @@ const AdminSignUp = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("https://minor-backend-pearl.vercel.app/admin/add", values)
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/admin/add`, values)
         .then((response) => {
           console.log(response.status);
           resetForm();

@@ -161,7 +161,7 @@ sudo apt install nginx -y
     ```nginx
     server {
         listen 80;
-        server_name _; # Use '_' for all domains/IPs if you don't have a domain yet
+        server_name _; # Use '3.110.203.240' for all domains/IPs if you don't have a domain yet
 
         location / {
             proxy_pass http://localhost:5000;

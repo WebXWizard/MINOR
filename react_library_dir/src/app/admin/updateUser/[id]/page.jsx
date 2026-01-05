@@ -34,7 +34,7 @@ const UpdateUser = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const res = await axios.get(`https://minor-backend-pearl.vercel.app/user/getbyid/${id}`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/getbyid/${id}`);
       setUserData(res.data);
     };
     fetchUserData();
@@ -50,7 +50,7 @@ const UpdateUser = () => {
     onSubmit: (values) => {
       console.log(values);
       axios
-        .put("https://minor-backend-pearl.vercel.app/user/update/" + id, values)
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/user/update/${id}`, values)
         .then((response) => {
           // console.log(response.status)
           // resetForm()

@@ -43,7 +43,7 @@ const SignUp = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("https://minor-backend-pearl.vercel.app/user/add", values)
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/user/add`, values)
         .then((response) => {
           console.log(response.status);
           resetForm();

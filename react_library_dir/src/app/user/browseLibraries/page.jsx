@@ -10,7 +10,7 @@ const Browse = () => {
   const [filterProduct, setFilterProduct] = useState([]);
 
   const fetchProduct = async () => {
-    const res = await fetch("https://minor-backend-pearl.vercel.app/library/getall");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/library/getall`);
     console.log(res.status);
     const data = await res.json();
     console.log(data);

@@ -36,7 +36,7 @@ const ContactUs = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("https://minor-backend-pearl.vercel.app/contact/add", values)
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/contact/add`, values)
         .then((response) => {
           console.log(response.status);
           resetForm();

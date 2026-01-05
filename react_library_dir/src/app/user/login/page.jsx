@@ -29,7 +29,7 @@ const Login = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("https://minor-backend-pearl.vercel.app/user/authenticate", values)
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/user/authenticate`, values)
         .then((response) => {
           console.log(response.status);
           // localStorage.setItem('user', JSON.stringify(response.data) )

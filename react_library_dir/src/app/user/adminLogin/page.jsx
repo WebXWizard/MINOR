@@ -26,7 +26,7 @@ const Login = () => {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       axios
-        .post("https://minor-backend-pearl.vercel.app/admin/authenticate", values)
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/admin/authenticate`, values)
         .then((response) => {
           console.log(response.status);
           localStorage.setItem('admin', JSON.stringify(response.data));
