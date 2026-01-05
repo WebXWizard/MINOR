@@ -22,13 +22,13 @@ app.use(
 );
 
 // API Routes (IMPORTANT)
-app.use("/api/user", UserRouter);
-app.use("/api/contact", ContactRouter);
-app.use("/api/library", LibraryRouter);
-app.use("/api/admin", AdminRouter);
+app.use("/user", UserRouter);
+app.use("/contact", ContactRouter);
+app.use("/library", LibraryRouter);
+app.use("/admin", AdminRouter);
 
 // Health check (VERY IMPORTANT for debugging)
-app.get("/api/health", (req, res) => {
+app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
